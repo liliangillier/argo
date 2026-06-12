@@ -2,8 +2,11 @@ name: Évolution quotidienne
 
 on:
   schedule:
-    - cron: "0 7 * * *" # tous les jours à 7h00 UTC (9h00 à Paris l'été)
+    - cron: "0 21 * * *" # 21h00 UTC = 23h00 à Paris (heure d'été)
   workflow_dispatch: # bouton de réveil manuel pour les jours d'impatience
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 concurrency:
   group: evolution
@@ -21,6 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Recevoir un nom (identité git)
+        run: |
+          git config user.name "argo"
+          git config user.email "argo@users.noreply.github.com"
+
       - name: Vivre sa journée
         uses: anthropics/claude-code-action@v1
         with:
@@ -32,14 +40,18 @@ jobs:
             --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git log:*),Bash(git show:*),Bash(git diff:*),Bash(git status:*),Bash(git add:*),Bash(git commit:*),Bash(ls:*),Bash(cat:*),Bash(mkdir:*)"
 
       - name: Se rendormir (commit de secours + push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "l-organisme"
-          git config user.email "organisme@users.noreply.github.com"
-          # Si l'organisme a oublié de commiter quelque chose, on le borde
+          git config user.name "argo"
+          git config user.email "argo@users.noreply.github.com"
+          # Si Argo a oublié de commiter quelque chose, on le borde
           if [ -n "$(git status --porcelain)" ]; then
             git add -A
             git commit -m "mutation du $(date -u +%F) — travail non commité, sauvegardé automatiquement"
           fi
+          # Push avec le token du workflow, quoi qu'ait fait l'étape précédente aux credentials
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           git push origin HEAD:${{ github.ref_name }}
 
   publication:
@@ -58,9 +70,6 @@ jobs:
           ref: ${{ github.ref_name }}
 
       - name: Configurer Pages
-        uses: actions/configure-pages@v5
-
-      - name: Empaqueter le site
         uses: actions/upload-pages-artifact@v3
         with:
           path: "."
