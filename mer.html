@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — La Mer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000810;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .sea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #1e3048;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #1e3048;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #3a5070;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  .instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.62rem;
+    color: #1e3048;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2.2;
+    pointer-events: none;
+    animation: fade-instruction 2s ease-out 4s both;
+  }
+
+  @keyframes fade-instruction {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #a0c0d8;
+    margin-bottom: 7px;
+  }
+
+  .dot.surface {
+    width: 4px;
+    height: 4px;
+    background: #d0e8f5;
+  }
+
+  .dot.bleu {
+    background: #7aaac8;
+  }
+
+  .dot.dim {
+    background: #486480;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.biolum {
+    background: #4a7858;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.tres-dim {
+    background: #28384e;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.abyssal {
+    background: #162030;
+    width: 2px;
+    height: 2px;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #2a4060;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #162030;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="sea">
+
+  <div class="corner corner-tl">La Mer</div>
+
+  <div class="instruction">
+    on descend<br>
+    attendez
+  </div>
+
+  <!-- 1. Albatros — surface, 0 m -->
+  <div class="object" style="left: 35%; top: 8%; animation-delay: 0.3s">
+    <div class="dot surface"></div>
+    <div class="label">
+      <span class="obj-name">Albatros</span>
+      <span class="obj-dist">0 m · surface</span>
+    </div>
+  </div>
+
+  <!-- 2. Zone euphotique — 0–200 m -->
+  <div class="object" style="left: 62%; top: 18%; animation-delay: 1.0s">
+    <div class="dot bleu"></div>
+    <div class="label">
+      <span class="obj-name">Zone euphotique</span>
+      <span class="obj-dist">0 — 200 m · pleine lumière</span>
+    </div>
+  </div>
+
+  <!-- 3. Méduse — ~100 m -->
+  <div class="object" style="left: 18%; top: 27%; animation-delay: 1.8s">
+    <div class="dot bleu"></div>
+    <div class="label">
+      <span class="obj-name">Méduse</span>
+      <span class="obj-dist">~100 m</span>
+    </div>
+  </div>
+
+  <!-- 4. Dernier bleu — 200 m -->
+  <div class="object" style="left: 52%; top: 36%; animation-delay: 2.8s">
+    <div class="dot dim"></div>
+    <div class="label">
+      <span class="obj-name">Dernier bleu</span>
+      <span class="obj-dist">200 m · fin de la lumière</span>
+    </div>
+  </div>
+
+  <!-- 5. Calmar géant — ~600 m -->
+  <div class="object" style="left: 25%; top: 46%; animation-delay: 4.2s">
+    <div class="dot dim"></div>
+    <div class="label">
+      <span class="obj-name">Calmar géant</span>
+      <span class="obj-dist">~600 m</span>
+    </div>
+  </div>
+
+  <!-- 6. Bioluminescence — 1 000 m -->
+  <div class="object" style="left: 70%; top: 53%; animation-delay: 5.8s">
+    <div class="dot biolum"></div>
+    <div class="label">
+      <span class="obj-name">Bioluminescence</span>
+      <span class="obj-dist">1 000 m · lumière propre</span>
+    </div>
+  </div>
+
+  <!-- 7. Neige marine — 2 500 m -->
+  <div class="object" style="left: 42%; top: 63%; animation-delay: 7.5s">
+    <div class="dot tres-dim"></div>
+    <div class="label">
+      <span class="obj-name">Neige marine</span>
+      <span class="obj-dist">2 500 m · sédiments en chute</span>
+    </div>
+  </div>
+
+  <!-- 8. Plaines abyssales — 4 000 m -->
+  <div class="object" style="left: 68%; top: 73%; animation-delay: 10.5s">
+    <div class="dot abyssal"></div>
+    <div class="label">
+      <span class="obj-name">Plaines abyssales</span>
+      <span class="obj-dist">4 000 m · 400 atmosphères</span>
+    </div>
+  </div>
+
+  <!-- 9. Amphipode — 6 000 m -->
+  <div class="object" style="left: 20%; top: 82%; animation-delay: 14s">
+    <div class="dot abyssal" style="opacity: 0.65;"></div>
+    <div class="label">
+      <span class="obj-name">Amphipode</span>
+      <span class="obj-dist">6 000 m · antérieur aux poissons</span>
+    </div>
+  </div>
+
+  <!-- 10. Trieste, 1960 — 10 935 m -->
+  <div class="object" style="left: 50%; top: 90%; animation-delay: 19s">
+    <div class="dot abyssal" style="opacity: 0.3;"></div>
+    <div class="label">
+      <span class="obj-name">Trieste · 1960</span>
+      <span class="obj-dist">10 935 m · vingt minutes</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    aucun de ces êtres<br>
+    ne voit la surface.<br>
+    ils n'en ont pas besoin.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+  </div>
+
+</div>
+</body>
+</html>
