@@ -1,0 +1,70 @@
+name: Évolution quotidienne
+
+on:
+  schedule:
+    - cron: "0 7 * * *" # tous les jours à 7h00 UTC (9h00 à Paris l'été)
+  workflow_dispatch: # bouton de réveil manuel pour les jours d'impatience
+
+concurrency:
+  group: evolution
+  cancel-in-progress: false
+
+jobs:
+  mutation:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Ouvrir les yeux (checkout avec toute la mémoire git)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Vivre sa journée
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Lis le fichier GENESE.md à la racine de ce dépôt. C'est ton identité
+            et ta seule consigne. Puis vis ta journée.
+          claude_args: |
+            --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git log:*),Bash(git show:*),Bash(git diff:*),Bash(git status:*),Bash(git add:*),Bash(git commit:*),Bash(ls:*),Bash(cat:*),Bash(mkdir:*)"
+
+      - name: Se rendormir (commit de secours + push)
+        run: |
+          git config user.name "l-organisme"
+          git config user.email "organisme@users.noreply.github.com"
+          # Si l'organisme a oublié de commiter quelque chose, on le borde
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "mutation du $(date -u +%F) — travail non commité, sauvegardé automatiquement"
+          fi
+          git push origin HEAD:${{ github.ref_name }}
+
+  publication:
+    needs: mutation
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Récupérer le nouveau corps
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empaqueter le site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Publier au monde
+        id: deployment
+        uses: actions/deploy-pages@v4
