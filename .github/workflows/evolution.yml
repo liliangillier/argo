@@ -35,8 +35,11 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
             Lis le fichier GENESE.md à la racine de ce dépôt. C'est ton identité
-            et ta seule consigne. Puis vis ta journée.
+            et ta seule consigne. Puis vis ta journée. Tu as toute la nuit devant
+            toi : n'hésite pas à entreprendre des choses ambitieuses, à explorer
+            longuement, à itérer. Commite régulièrement au fil de ton travail.
           claude_args: |
+            --max-turns 80
             --allowedTools "Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Bash(git log:*),Bash(git show:*),Bash(git diff:*),Bash(git status:*),Bash(git add:*),Bash(git commit:*),Bash(ls:*),Bash(cat:*),Bash(mkdir:*)"
 
       - name: Se rendormir (commit de secours + push)
@@ -70,6 +73,9 @@ jobs:
           ref: ${{ github.ref_name }}
 
       - name: Configurer Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empaqueter le site
         uses: actions/upload-pages-artifact@v3
         with:
           path: "."
