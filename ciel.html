@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Lumières anciennes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .sky {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Corner text elements */
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #2e2e2e;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #2e2e2e;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #555;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  /* Star container: positioned absolutely */
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff;
+    margin-bottom: 7px;
+  }
+
+  .dot.sol {
+    width: 5px;
+    height: 5px;
+    background: #ffe8a0;
+    box-shadow: 0 0 6px 1px rgba(255, 230, 140, 0.4);
+  }
+
+  .dot.lune {
+    width: 4px;
+    height: 4px;
+    background: #ddd;
+  }
+
+  .dot.bleu {
+    background: #b8d0ff;
+  }
+
+  .dot.rouge {
+    background: #d4724a;
+  }
+
+  .dot.faible {
+    background: #888;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.tres-faible {
+    background: #555;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.galaxie {
+    width: 6px;
+    height: 3px;
+    border-radius: 50%;
+    background: #776;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #444;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #282828;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="sky">
+
+  <div class="corner corner-tl">Lumières anciennes</div>
+
+  <!-- 1. La Lune — 1,3 seconde-lumière -->
+  <div class="object" style="left: 12%; top: 68%; animation-delay: 0.3s">
+    <div class="dot lune"></div>
+    <div class="label">
+      <span class="obj-name">La Lune</span>
+      <span class="obj-dist">1,3 seconde-lumière</span>
+    </div>
+  </div>
+
+  <!-- 2. Le Soleil — 8 minutes-lumière -->
+  <div class="object" style="left: 44%; top: 28%; animation-delay: 0.9s">
+    <div class="dot sol"></div>
+    <div class="label">
+      <span class="obj-name">Le Soleil</span>
+      <span class="obj-dist">8 minutes-lumière</span>
+    </div>
+  </div>
+
+  <!-- 3. Mars — ~12 minutes-lumière (opposition) -->
+  <div class="object" style="left: 60%; top: 55%; animation-delay: 1.5s">
+    <div class="dot rouge"></div>
+    <div class="label">
+      <span class="obj-name">Mars</span>
+      <span class="obj-dist">12 minutes-lumière</span>
+    </div>
+  </div>
+
+  <!-- 4. Alpha Centauri — 4,2 années-lumière -->
+  <div class="object" style="left: 24%; top: 17%; animation-delay: 2.8s">
+    <div class="dot faible"></div>
+    <div class="label">
+      <span class="obj-name">Alpha Centauri</span>
+      <span class="obj-dist">4,2 années-lumière</span>
+    </div>
+  </div>
+
+  <!-- 5. Sirius — 8,6 années-lumière -->
+  <div class="object" style="left: 63%; top: 38%; animation-delay: 3.8s">
+    <div class="dot bleu faible"></div>
+    <div class="label">
+      <span class="obj-name">Sirius</span>
+      <span class="obj-dist">8,6 années-lumière</span>
+    </div>
+  </div>
+
+  <!-- 6. Les Pléiades — 444 années-lumière -->
+  <div class="object" style="left: 35%; top: 58%; animation-delay: 5.5s">
+    <div class="dot faible"></div>
+    <div class="label">
+      <span class="obj-name">Les Pléiades</span>
+      <span class="obj-dist">444 années-lumière</span>
+    </div>
+  </div>
+
+  <!-- 7. Deneb — ~2 600 années-lumière -->
+  <div class="object" style="left: 50%; top: 12%; animation-delay: 7.0s">
+    <div class="dot tres-faible"></div>
+    <div class="label">
+      <span class="obj-name">Deneb</span>
+      <span class="obj-dist">~2 600 années-lumière</span>
+    </div>
+  </div>
+
+  <!-- 8. Andromède — 2,5 millions d'années-lumière -->
+  <div class="object" style="left: 16%; top: 40%; animation-delay: 9.5s">
+    <div class="dot galaxie"></div>
+    <div class="label">
+      <span class="obj-name">Andromède</span>
+      <span class="obj-dist">2,5 millions d'années-lumière</span>
+    </div>
+  </div>
+
+  <!-- 9. 3C 273 — 2,4 milliards d'années-lumière -->
+  <div class="object" style="left: 47%; top: 76%; animation-delay: 13.5s">
+    <div class="dot tres-faible" style="opacity: 0.4;"></div>
+    <div class="label">
+      <span class="obj-name">3C 273</span>
+      <span class="obj-dist">2,4 milliards d'années-lumière</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    aucune de ces lumières<br>
+    n'est contemporaine.<br>
+    vous regardez le passé.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+  </div>
+
+</div>
+</body>
+</html>
