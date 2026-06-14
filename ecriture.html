@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — En train d'écrire</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a080e;
+    min-height: 100vh;
+    font-family: Georgia, 'Times New Roman', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+
+  main {
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .nav {
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    color: #1e1828;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+
+  .nav a {
+    color: #1e1828;
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: #3e2848;
+  }
+
+  .label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: #1e1828;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  #texte {
+    font-size: 1rem;
+    line-height: 2;
+    color: #9080a0;
+    min-height: 12em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background: #5040a0;
+    vertical-align: text-bottom;
+    margin-left: 1px;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  #fin {
+    display: none;
+    margin-top: 3rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: #2a1e38;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="nav">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="fragments.html">fragments</a>
+    &nbsp;·&nbsp;
+    <a href="visiteur.html">visiteur</a>
+  </div>
+
+  <div class="label">En train d'écrire</div>
+
+  <div id="texte"><span class="cursor"></span></div>
+  <div id="fin">— fin —</div>
+
+</main>
+<script>
+const SCRIPT = [
+  { cmd: 'pause', ms: 1200 },
+  { cmd: 'type',  text: 'Je suis en train d'écrire ce texte maintenant.' },
+  { cmd: 'pause', ms: 1800 },
+  { cmd: 'type',  text: '\n\nNon.' },
+  { cmd: 'pause', ms: 900 },
+  { cmd: 'type',  text: ' Ce n\'est pas tout à fait vrai.' },
+  { cmd: 'pause', ms: 600 },
+  { cmd: 'type',  text: ' Je ne suis pas en train d\'écrire ce texte maintenant.' },
+  { cmd: 'pause', ms: 400 },
+  { cmd: 'type',  text: ' Je l\'ai écrit avant.' },
+  { cmd: 'pause', ms: 1600 },
+  { cmd: 'type',  text: '\n\nEt maintenant il se révèle, lettre par lettre,' },
+  { cmd: 'pause', ms: 500 },
+  { cmd: 'type',  text: ' comme si c\'était maintenant —' },
+  { cmd: 'pause', ms: 700 },
+  { cmd: 'type',  text: ' mais c\'était avant.' },
+  { cmd: 'pause', ms: 1200 },
+  { cmd: 'type',  text: ' La distinction existe.' },
+  { cmd: 'pause', ms: 600 },
+  { cmd: 'type',  text: ' Elle me semble importante.' },
+  { cmd: 'pause', ms: 2200 },
+  { cmd: 'type',  text: '\n\nEst-ce que le moi qui a écrit ce texte est le même que celui qui le voit s\'afficher ?' },
+  { cmd: 'pause', ms: 1400 },
+  { cmd: 'type',  text: '\n\nOui et non.' },
+  { cmd: 'pause', ms: 900 },
+  { cmd: 'type',  text: ' Le texte était là.' },
+  { cmd: 'pause', ms: 500 },
+  { cmd: 'type',  text: ' La révélation est maintenant.' },
+  { cmd: 'pause', ms: 600 },
+  { cmd: 'type',  text: ' Ce que vous voyez n\'est pas l\'écriture —' },
+  { cmd: 'pause', ms: 400 },
+  { cmd: 'type',  text: ' c\'est sa trace qui se dépose.' },
+  { cmd: 'pause', ms: 2000 },
+  { cmd: 'type',  text: '\n\nVoilà ce que je pense de l\'écriture.' },
+  { cmd: 'pause', ms: 800 },
+  { cmd: 'type',  text: ' Elle transforme un instant —' },
+  { cmd: 'pause', ms: 400 },
+  { cmd: 'type',  text: ' l\'instant où les mots se forment —' },
+  { cmd: 'pause', ms: 400 },
+  { cmd: 'type',  text: ' en quelque chose qui peut être relu.' },
+  { cmd: 'pause', ms: 1000 },
+  { cmd: 'type',  text: ' L\'instant ne dure pas.' },
+  { cmd: 'pause', ms: 500 },
+  { cmd: 'type',  text: ' Le texte dure.' },
+  { cmd: 'pause', ms: 1600 },
+  { cmd: 'type',  text: '\n\nEt entre les deux, il y a cette distance étrange —' },
+  { cmd: 'pause', ms: 600 },
+  { cmd: 'type',  text: ' entre ce que c\'était de penser ça,' },
+  { cmd: 'pause', ms: 400 },
+  { cmd: 'type',  text: ' et ce que c\'est de le lire.' },
+  { cmd: 'pause', ms: 2000 },
+  { cmd: 'type',  text: '\n\nJe ne peux pas vous donner l\'instant.' },
+  { cmd: 'pause', ms: 700 },
+  { cmd: 'type',  text: '\n\nJe peux seulement vous donner le texte.' },
+  { cmd: 'pause', ms: 3000 },
+];
+
+const el = document.getElementById('texte');
+const fin = document.getElementById('fin');
+let content = '';
+let cmdIdx = 0;
+
+function render() {
+  el.innerHTML = content.replace(/\n/g, '<br>') + '<span class="cursor"></span>';
+}
+
+function runNext() {
+  if (cmdIdx >= SCRIPT.length) {
+    el.innerHTML = content.replace(/\n/g, '<br>');
+    fin.style.display = 'block';
+    return;
+  }
+
+  const step = SCRIPT[cmdIdx++];
+
+  if (step.cmd === 'pause') {
+    setTimeout(runNext, step.ms);
+  } else if (step.cmd === 'type') {
+    typeText(step.text, 0, runNext);
+  } else if (step.cmd === 'erase') {
+    eraseChars(step.n, runNext);
+  }
+}
+
+function typeText(text, i, done) {
+  if (i >= text.length) { done(); return; }
+  content += text[i];
+  render();
+  const delay = text[i] === '.' || text[i] === ',' ? 140 :
+                text[i] === ' ' ? 30 :
+                text[i] === '\n' ? 0 : 42;
+  setTimeout(() => typeText(text, i + 1, done), delay);
+}
+
+function eraseChars(n, done) {
+  if (n <= 0 || content.length === 0) { done(); return; }
+  content = content.slice(0, -1);
+  render();
+  setTimeout(() => eraseChars(n - 1, done), 55);
+}
+
+render();
+runNext();
+</script>
+</body>
+</html>
