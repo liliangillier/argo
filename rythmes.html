@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Rythmes</title>
+<style>
+  :root {
+    --bg: #050508;
+    --dim: #18182a;
+    --text-dim: #28284a;
+    --text: #38385e;
+    --bar-bg: #0c0c18;
+    --bar-fill: #303055;
+    --dot: #7070a8;
+    --accent: #5050a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+
+  .corner {
+    position: fixed;
+    font-size: 0.6rem;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: var(--text);
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+
+  .rythmes {
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .rythme {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .rythme-label {
+    font-size: 0.58rem;
+    color: var(--text);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: 200px;
+    flex-shrink: 0;
+    text-align: right;
+    line-height: 1.4;
+  }
+
+  .rythme-unit {
+    font-size: 0.5rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    width: 76px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+
+  .rythme-bar {
+    flex: 1;
+    height: 1px;
+    background: var(--bar-bg);
+    position: relative;
+  }
+
+  .rythme-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--bar-fill);
+  }
+
+  .rythme-dot {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--dot);
+  }
+
+  /* Animations CSS pour les deux rythmes les plus rapides */
+  @keyframes bpm {
+    0%, 100%  { opacity: 0.15; box-shadow: none; }
+    8%        { opacity: 1;    box-shadow: 0 0 4px 1px rgba(120,120,200,0.5); }
+    25%       { opacity: 0.2;  box-shadow: none; }
+  }
+
+  @keyframes breath {
+    0%, 100% { opacity: 0.15; }
+    50%      { opacity: 0.85; }
+  }
+
+  .dot-heart  { animation: bpm    0.833s ease-in-out infinite; }
+  .dot-breath { animation: breath 4s    ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<div class="corner corner-tl">Rythmes</div>
+
+<div class="corner corner-bl">
+  <a href="index.html">← argo</a>
+  &nbsp;·&nbsp;
+  <a href="maintenant.html">maintenant</a>
+  &nbsp;·&nbsp;
+  <a href="temps.html">temps</a>
+  &nbsp;·&nbsp;
+  <a href="apres.html">après</a>
+  &nbsp;·&nbsp;
+  <a href="fragments.html">fragments</a>
+</div>
+
+<div class="rythmes" id="rythmes"></div>
+
+<script>
+const RYTHMES = [
+  {
+    name: 'battement de cœur',
+    period: 0.833,
+    unit: '0,83 s',
+    css: 'dot-heart',
+  },
+  {
+    name: 'respiration',
+    period: 4,
+    unit: '4 s',
+    css: 'dot-breath',
+  },
+  {
+    name: 'marée haute',
+    period: 44640,
+    unit: '12,4 h',
+    css: null,
+  },
+  {
+    name: 'journée',
+    period: 86400,
+    unit: '24 h',
+    css: null,
+  },
+  {
+    name: 'lunaison',
+    period: 2551443,
+    unit: '29,5 j',
+    css: null,
+  },
+  {
+    name: 'année solaire',
+    period: 31557600,
+    unit: '365,25 j',
+    css: null,
+  },
+  {
+    name: 'cycle des taches solaires',
+    period: 347000000,
+    unit: '11 ans',
+    css: null,
+  },
+  {
+    name: 'précession des équinoxes',
+    period: 8.2e11,
+    unit: '26 000 ans',
+    css: null,
+  },
+  {
+    name: 'révolution galactique',
+    period: 7.1e15,
+    unit: '225 Ma',
+    css: null,
+  },
+];
+
+const container = document.getElementById('rythmes');
+const dotEls  = [];
+const fillEls = [];
+
+RYTHMES.forEach((r) => {
+  const row = document.createElement('div');
+  row.className = 'rythme';
+
+  const label = document.createElement('div');
+  label.className = 'rythme-label';
+  label.textContent = r.name;
+
+  const unit = document.createElement('div');
+  unit.className = 'rythme-unit';
+  unit.textContent = r.unit;
+
+  const bar = document.createElement('div');
+  bar.className = 'rythme-bar';
+
+  const fill = document.createElement('div');
+  fill.className = 'rythme-fill';
+  bar.appendChild(fill);
+
+  const dot = document.createElement('div');
+  dot.className = 'rythme-dot' + (r.css ? ' ' + r.css : '');
+
+  if (r.css) {
+    dot.style.left = '50%';
+  }
+
+  bar.appendChild(dot);
+
+  dotEls.push(r.css ? null : dot);
+  fillEls.push(r.css ? null : fill);
+
+  row.appendChild(label);
+  row.appendChild(unit);
+  row.appendChild(bar);
+  container.appendChild(row);
+});
+
+function tick() {
+  const nowSec = Date.now() / 1000;
+
+  RYTHMES.forEach((r, i) => {
+    if (!dotEls[i]) return;
+
+    const phase = (nowSec % r.period) / r.period;
+    const pct   = phase * 100;
+
+    dotEls[i].style.left  = pct + '%';
+    fillEls[i].style.width = pct + '%';
+  });
+
+  requestAnimationFrame(tick);
+}
+
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>
