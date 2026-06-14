@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Après</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #060810;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .timeline {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #0e1230;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #0e1230;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #303060;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  .instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.62rem;
+    color: #0e1230;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2.2;
+    pointer-events: none;
+    animation: fade-instruction 2s ease-out 4s both;
+  }
+
+  @keyframes fade-instruction {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: 1px solid #9090b8;
+    background: transparent;
+    margin-bottom: 7px;
+  }
+
+  .dot.maintenant {
+    width: 5px;
+    height: 5px;
+    background: #d0d8f0;
+    border: none;
+    box-shadow: 0 0 6px 1px rgba(180, 200, 240, 0.3);
+  }
+
+  .dot.proche {
+    border-color: #7070a0;
+  }
+
+  .dot.milieu {
+    border-color: #505080;
+    width: 3px;
+    height: 3px;
+  }
+
+  .dot.lointain {
+    border-color: #383860;
+    width: 3px;
+    height: 3px;
+  }
+
+  .dot.tres-lointain {
+    border-color: #252545;
+    width: 2px;
+    height: 2px;
+    border-style: dashed;
+  }
+
+  .dot.infini {
+    border-color: #181828;
+    width: 2px;
+    height: 2px;
+    border-style: dashed;
+    opacity: 0.55;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #1a1a48;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #0c0c22;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="timeline">
+
+  <div class="corner corner-tl">Après</div>
+
+  <div class="instruction">
+    on avance<br>
+    attendez
+  </div>
+
+  <!-- 1. Maintenant — 2026 -->
+  <div class="object" style="left: 52%; top: 87%; animation-delay: 0.3s">
+    <div class="dot maintenant"></div>
+    <div class="label">
+      <span class="obj-name">Maintenant</span>
+      <span class="obj-dist">2026 · ici</span>
+    </div>
+  </div>
+
+  <!-- 2. ~2100 — limite du visible -->
+  <div class="object" style="left: 30%; top: 79%; animation-delay: 1.2s">
+    <div class="dot proche"></div>
+    <div class="label">
+      <span class="obj-name">Limite du visible</span>
+      <span class="obj-dist">~2100 · fin des projections fiables</span>
+    </div>
+  </div>
+
+  <!-- 3. 10 000 ans — dérive de l'axe -->
+  <div class="object" style="left: 64%; top: 70%; animation-delay: 2.4s">
+    <div class="dot proche"></div>
+    <div class="label">
+      <span class="obj-name">Dérive de l'axe</span>
+      <span class="obj-dist">~10 000 ans · nouvelle étoile polaire</span>
+    </div>
+  </div>
+
+  <!-- 4. 100 000 ans — ciel inconnu -->
+  <div class="object" style="left: 16%; top: 61%; animation-delay: 3.8s">
+    <div class="dot milieu"></div>
+    <div class="label">
+      <span class="obj-name">Ciel inconnu</span>
+      <span class="obj-dist">~100 000 ans · constellations méconnaissables</span>
+    </div>
+  </div>
+
+  <!-- 5. 250 millions d'années — Pangaea Proxima -->
+  <div class="object" style="left: 68%; top: 52%; animation-delay: 5.5s">
+    <div class="dot milieu"></div>
+    <div class="label">
+      <span class="obj-name">Pangaea Proxima</span>
+      <span class="obj-dist">~250 Ma · prochain supercontinent</span>
+    </div>
+  </div>
+
+  <!-- 6. 600 millions d'années — fin de la photosynthèse -->
+  <div class="object" style="left: 33%; top: 43%; animation-delay: 7.5s">
+    <div class="dot lointain"></div>
+    <div class="label">
+      <span class="obj-name">Fin du vert</span>
+      <span class="obj-dist">~600 Ma · CO₂ trop faible pour les plantes</span>
+    </div>
+  </div>
+
+  <!-- 7. 1 milliard d'années — mers vides -->
+  <div class="object" style="left: 58%; top: 34%; animation-delay: 10.0s">
+    <div class="dot lointain"></div>
+    <div class="label">
+      <span class="obj-name">Mers vides</span>
+      <span class="obj-dist">~1 Ga · les océans s'évaporent</span>
+    </div>
+  </div>
+
+  <!-- 8. 5 milliards d'années — géante rouge -->
+  <div class="object" style="left: 20%; top: 25%; animation-delay: 13.5s">
+    <div class="dot tres-lointain"></div>
+    <div class="label">
+      <span class="obj-name">Géante rouge</span>
+      <span class="obj-dist">~5 Ga · le Soleil engloutit la Terre</span>
+    </div>
+  </div>
+
+  <!-- 9. 10^20 ans — dernière étoile -->
+  <div class="object" style="left: 63%; top: 16%; animation-delay: 17.0s">
+    <div class="dot tres-lointain"></div>
+    <div class="label">
+      <span class="obj-name">Dernière étoile</span>
+      <span class="obj-dist">~10²⁰ ans · mort de la dernière naine rouge</span>
+    </div>
+  </div>
+
+  <!-- 10. 10^67 ans — silence complet -->
+  <div class="object" style="left: 40%; top: 7%; animation-delay: 22.0s">
+    <div class="dot infini"></div>
+    <div class="label">
+      <span class="obj-name">Silence complet</span>
+      <span class="obj-dist">~10⁶⁷ ans · dernier trou noir évaporé</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    dans 5 milliards d'années,<br>
+    notre étoile engloutira la Terre.<br>
+    Voyager sera encore en route.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="temps.html">temps</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+    &nbsp;·&nbsp;
+    <a href="mer.html">mer</a>
+    &nbsp;·&nbsp;
+    <a href="micro.html">micro</a>
+    &nbsp;·&nbsp;
+    <a href="fragments.html">fragments</a>
+  </div>
+
+</div>
+</body>
+</html>
