@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Maintenant</title>
+<style>
+  :root {
+    --bg: #080808;
+    --text: #c8c8c8;
+    --dim: #383838;
+    --accent: #7eb8a4;
+    --accent2: #b8977e;
+    --accent3: #9b8ec4;
+    --line: #141414;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+    min-height: 100vh;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  main {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    font-size: 0.6rem;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+
+  .nav a {
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: #666;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: #e8e8e8;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    font-family: Georgia, serif;
+  }
+
+  .subtitle {
+    font-size: 0.68rem;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+
+  .block {
+    margin-bottom: 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .block:last-child {
+    border-bottom: none;
+  }
+
+  .label {
+    font-size: 0.6rem;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .count {
+    font-size: 2.2rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .count.accent { color: var(--accent); }
+  .count.warm   { color: var(--accent2); }
+  .count.deep   { color: var(--accent3); }
+
+  .note {
+    font-size: 0.65rem;
+    color: #444;
+    letter-spacing: 0.05em;
+    line-height: 1.9;
+  }
+
+  .intro {
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    color: #888;
+    line-height: 1.85;
+    margin-bottom: 4rem;
+  }
+
+  .intro p + p {
+    margin-top: 1.2em;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="nav">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+    &nbsp;·&nbsp;
+    <a href="mer.html">mer</a>
+    &nbsp;·&nbsp;
+    <a href="temps.html">temps</a>
+    &nbsp;·&nbsp;
+    <a href="micro.html">micro</a>
+    &nbsp;·&nbsp;
+    <a href="fragments.html">fragments</a>
+  </div>
+
+  <h1>Maintenant</h1>
+  <p class="subtitle">pendant que vous lisez cette page</p>
+
+  <div class="intro">
+    <p>
+      Le temps profond n'est pas derrière nous. Il continue.
+      L'univers vieillit pendant que vous lisez ces mots.
+      Ces compteurs montrent ce qui se passe pendant votre visite.
+    </p>
+    <p>
+      Ils démarrent à zéro et ne s'arrêtent pas.
+    </p>
+  </div>
+
+  <div class="block">
+    <div class="label">secondes écoulées depuis votre arrivée</div>
+    <div class="count" id="secondes">0</div>
+    <div class="note">la durée de cette rencontre</div>
+  </div>
+
+  <div class="block">
+    <div class="label">battements de cœur (70 / min)</div>
+    <div class="count accent" id="coeur">0</div>
+    <div class="note">dans un corps humain qui lit cette page</div>
+  </div>
+
+  <div class="block">
+    <div class="label">neurones ayant transmis un signal</div>
+    <div class="count warm" id="neurones">0</div>
+    <div class="note">
+      86 milliards de neurones · 100 Hz chacun en moyenne<br>
+      8,6 × 10¹² signaux par seconde dans un cerveau actif
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">cellules nouvellement créées dans un corps</div>
+    <div class="count deep" id="cellules">0</div>
+    <div class="note">
+      ~3 800 000 par seconde · division et renouvellement constants<br>
+      globules rouges, cellules épithéliales, plaquettes
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">photons solaires ayant frappé la Terre</div>
+    <div class="count" id="photons">0</div>
+    <div class="note">
+      ~10²¹ photons frappent la Terre chaque seconde<br>
+      1 000 000 000 000 000 000 000
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">étoiles ayant explosé dans l'univers observable</div>
+    <div class="count accent" id="supernovae">0,000</div>
+    <div class="note">
+      ~2 supernovae par seconde dans l'univers observable<br>
+      ce compteur avance lentement — elles sont rares ici, communes là-bas
+    </div>
+  </div>
+
+</main>
+
+<script>
+  var start = Date.now();
+
+  function fmt(n) {
+    if (n < 1000) return Math.floor(n).toString();
+    return Math.floor(n).toLocaleString('fr-FR');
+  }
+
+  function tick() {
+    var dt = (Date.now() - start) / 1000;
+
+    document.getElementById('secondes').textContent  = fmt(dt);
+    document.getElementById('coeur').textContent     = fmt(dt * (70 / 60));
+    document.getElementById('neurones').textContent  = fmt(dt * 8.6e12);
+    document.getElementById('cellules').textContent  = fmt(dt * 3.8e6);
+    document.getElementById('photons').textContent   = fmt(dt * 1e21);
+
+    var sv = dt * 2;
+    document.getElementById('supernovae').textContent = sv.toFixed(3);
+
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+</script>
+</body>
+</html>
