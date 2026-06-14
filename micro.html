@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — L'intérieur</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #060a06;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .interior {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #0e1e0e;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #0e1e0e;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #1e3e1e;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  .instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.62rem;
+    color: #0e1e0e;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2.2;
+    pointer-events: none;
+    animation: fade-instruction 2s ease-out 4s both;
+  }
+
+  @keyframes fade-instruction {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #70a870;
+    margin-bottom: 7px;
+  }
+
+  .dot.macro {
+    width: 5px;
+    height: 5px;
+    background: #90c890;
+    box-shadow: 0 0 6px 1px rgba(120, 190, 120, 0.3);
+  }
+
+  .dot.meso {
+    background: #609060;
+  }
+
+  .dot.micro {
+    background: #406040;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.nano {
+    background: #284828;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.sub {
+    background: #142814;
+    width: 2px;
+    height: 2px;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #2a4a2a;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #142014;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="interior">
+
+  <div class="corner corner-tl">L'intérieur</div>
+
+  <div class="instruction">
+    on plonge<br>
+    attendez
+  </div>
+
+  <!-- 1. Être humain — ~1,7 m -->
+  <div class="object" style="left: 50%; top: 10%; animation-delay: 0.3s">
+    <div class="dot macro"></div>
+    <div class="label">
+      <span class="obj-name">Être humain</span>
+      <span class="obj-dist">~1,7 m · point de départ</span>
+    </div>
+  </div>
+
+  <!-- 2. Cœur — 12 cm -->
+  <div class="object" style="left: 25%; top: 20%; animation-delay: 1.2s">
+    <div class="dot meso"></div>
+    <div class="label">
+      <span class="obj-name">Cœur</span>
+      <span class="obj-dist">12 cm · 100 000 battements par jour</span>
+    </div>
+  </div>
+
+  <!-- 3. Neurone — ~100 μm -->
+  <div class="object" style="left: 65%; top: 30%; animation-delay: 2.5s">
+    <div class="dot meso"></div>
+    <div class="label">
+      <span class="obj-name">Neurone</span>
+      <span class="obj-dist">~100 μm · 86 milliards dans un cerveau</span>
+    </div>
+  </div>
+
+  <!-- 4. Cellule — ~10 μm -->
+  <div class="object" style="left: 35%; top: 42%; animation-delay: 4.0s">
+    <div class="dot micro"></div>
+    <div class="label">
+      <span class="obj-name">Cellule</span>
+      <span class="obj-dist">~10 μm · 37 000 milliards dans un corps</span>
+    </div>
+  </div>
+
+  <!-- 5. ADN — 2 nm de diamètre -->
+  <div class="object" style="left: 68%; top: 54%; animation-delay: 6.0s">
+    <div class="dot nano"></div>
+    <div class="label">
+      <span class="obj-name">ADN</span>
+      <span class="obj-dist">2 nm · 2 mètres dans chaque cellule</span>
+    </div>
+  </div>
+
+  <!-- 6. Nucléotide — ~0,34 nm -->
+  <div class="object" style="left: 20%; top: 63%; animation-delay: 8.5s">
+    <div class="dot nano"></div>
+    <div class="label">
+      <span class="obj-name">Nucléotide</span>
+      <span class="obj-dist">0,34 nm · 3 milliards par cellule</span>
+    </div>
+  </div>
+
+  <!-- 7. Molécule d'eau — 0,275 nm -->
+  <div class="object" style="left: 55%; top: 72%; animation-delay: 11.0s">
+    <div class="dot sub"></div>
+    <div class="label">
+      <span class="obj-name">Molécule d'eau</span>
+      <span class="obj-dist">0,275 nm · 70% du poids du corps</span>
+    </div>
+  </div>
+
+  <!-- 8. Atome d'hydrogène — 0,1 nm -->
+  <div class="object" style="left: 38%; top: 81%; animation-delay: 14.5s">
+    <div class="dot sub" style="opacity: 0.7;"></div>
+    <div class="label">
+      <span class="obj-name">Atome d'hydrogène</span>
+      <span class="obj-dist">0,1 nm · le plus léger</span>
+    </div>
+  </div>
+
+  <!-- 9. Noyau atomique — 10⁻¹⁵ m -->
+  <div class="object" style="left: 72%; top: 88%; animation-delay: 18.0s">
+    <div class="dot sub" style="opacity: 0.45;"></div>
+    <div class="label">
+      <span class="obj-name">Noyau atomique</span>
+      <span class="obj-dist">10⁻¹⁵ m · 100 000× plus petit que l'atome</span>
+    </div>
+  </div>
+
+  <!-- 10. Quark — <10⁻¹⁸ m -->
+  <div class="object" style="left: 28%; top: 93%; animation-delay: 22.0s">
+    <div class="dot sub" style="opacity: 0.22;"></div>
+    <div class="label">
+      <span class="obj-name">Quark</span>
+      <span class="obj-dist">&lt;10⁻¹⁸ m · sans taille mesurable</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    tout ceci est en toi<br>
+    en train d'arriver<br>
+    maintenant.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+    &nbsp;·&nbsp;
+    <a href="mer.html">mer</a>
+    &nbsp;·&nbsp;
+    <a href="temps.html">temps</a>
+    &nbsp;·&nbsp;
+    <a href="fragments.html">fragments</a>
+  </div>
+
+</div>
+</body>
+</html>
