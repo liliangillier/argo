@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Temps profond</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #08060a;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .timeline {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #2a1a18;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #2a1a18;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #5a3a34;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  .instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.62rem;
+    color: #2a1a18;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2.2;
+    pointer-events: none;
+    animation: fade-instruction 2s ease-out 4s both;
+  }
+
+  @keyframes fade-instruction {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #c8a090;
+    margin-bottom: 7px;
+  }
+
+  .dot.present {
+    width: 5px;
+    height: 5px;
+    background: #e8c8b8;
+    box-shadow: 0 0 6px 1px rgba(230, 190, 160, 0.3);
+  }
+
+  .dot.recent {
+    background: #b89080;
+  }
+
+  .dot.ancien {
+    background: #806050;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.tres-ancien {
+    background: #502820;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.origine {
+    background: #301008;
+    width: 2px;
+    height: 2px;
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #4a2820;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #281008;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="timeline">
+
+  <div class="corner corner-tl">Temps profond</div>
+
+  <div class="instruction">
+    on remonte<br>
+    attendez
+  </div>
+
+  <!-- 1. Maintenant — 2026 -->
+  <div class="object" style="left: 52%; top: 14%; animation-delay: 0.3s">
+    <div class="dot present"></div>
+    <div class="label">
+      <span class="obj-name">Maintenant</span>
+      <span class="obj-dist">2026 · ici</span>
+    </div>
+  </div>
+
+  <!-- 2. Écriture cunéiforme — 3 400 av. J.-C. -->
+  <div class="object" style="left: 28%; top: 22%; animation-delay: 1.2s">
+    <div class="dot recent"></div>
+    <div class="label">
+      <span class="obj-name">Écriture</span>
+      <span class="obj-dist">~5 400 ans · Sumer</span>
+    </div>
+  </div>
+
+  <!-- 3. Homo sapiens — 300 000 ans -->
+  <div class="object" style="left: 65%; top: 32%; animation-delay: 2.4s">
+    <div class="dot recent"></div>
+    <div class="label">
+      <span class="obj-name">Homo sapiens</span>
+      <span class="obj-dist">300 000 ans · Maroc</span>
+    </div>
+  </div>
+
+  <!-- 4. Premiers outils de pierre — 3,3 millions d'années -->
+  <div class="object" style="left: 18%; top: 42%; animation-delay: 3.8s">
+    <div class="dot ancien"></div>
+    <div class="label">
+      <span class="obj-name">Premier outil</span>
+      <span class="obj-dist">3,3 Ma · Kenya</span>
+    </div>
+  </div>
+
+  <!-- 5. Extinction des dinosaures — 66 millions d'années -->
+  <div class="object" style="left: 72%; top: 50%; animation-delay: 5.5s">
+    <div class="dot ancien"></div>
+    <div class="label">
+      <span class="obj-name">Extinction K-Pg</span>
+      <span class="obj-dist">66 Ma · impacteur</span>
+    </div>
+  </div>
+
+  <!-- 6. Grande extinction Permien-Trias — 252 millions d'années -->
+  <div class="object" style="left: 38%; top: 60%; animation-delay: 7.5s">
+    <div class="dot tres-ancien"></div>
+    <div class="label">
+      <span class="obj-name">Grande extinction</span>
+      <span class="obj-dist">252 Ma · 96% des espèces</span>
+    </div>
+  </div>
+
+  <!-- 7. Explosion cambrienne — 541 millions d'années -->
+  <div class="object" style="left: 58%; top: 70%; animation-delay: 10.0s">
+    <div class="dot tres-ancien"></div>
+    <div class="label">
+      <span class="obj-name">Explosion cambrienne</span>
+      <span class="obj-dist">541 Ma · formes complexes</span>
+    </div>
+  </div>
+
+  <!-- 8. Premières bactéries photosynthétiques — 2,7 milliards d'années -->
+  <div class="object" style="left: 22%; top: 79%; animation-delay: 13.5s">
+    <div class="dot tres-ancien" style="opacity: 0.75;"></div>
+    <div class="label">
+      <span class="obj-name">Photosynthèse</span>
+      <span class="obj-dist">2,7 Ga · oxygène</span>
+    </div>
+  </div>
+
+  <!-- 9. Formation de la Terre — 4,5 milliards d'années -->
+  <div class="object" style="left: 68%; top: 86%; animation-delay: 17.0s">
+    <div class="dot origine"></div>
+    <div class="label">
+      <span class="obj-name">Formation de la Terre</span>
+      <span class="obj-dist">4,5 Ga · poussière stellaire</span>
+    </div>
+  </div>
+
+  <!-- 10. Big Bang — 13,8 milliards d'années -->
+  <div class="object" style="left: 42%; top: 93%; animation-delay: 22.0s">
+    <div class="dot origine" style="opacity: 0.4;"></div>
+    <div class="label">
+      <span class="obj-name">Big Bang</span>
+      <span class="obj-dist">13,8 Ga · début</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    si la Terre avait un an,<br>
+    les humains apparaissent<br>
+    le 31 décembre à 23h58.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+    &nbsp;·&nbsp;
+    <a href="mer.html">mer</a>
+  </div>
+
+</div>
+</body>
+</html>
