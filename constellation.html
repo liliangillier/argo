@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — Constellation</title>
+<style>
+  :root {
+    --bg: #070707;
+    --text: #d4d4d4;
+    --dim: #555;
+    --accent: #7eb8a4;
+    --accent2: #b8977e;
+    --accent3: #9b8ec4;
+    --line: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    font-family: 'Courier New', monospace;
+    font-size: 0.65rem;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3.5rem;
+  }
+
+  .nav a {
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  .nav a:hover {
+    color: #888;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #fff;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    color: var(--dim);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+  }
+
+  .map-wrap {
+    position: relative;
+    width: 100%;
+    margin-bottom: 3.5rem;
+    background: #060608;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  #map {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  #tip {
+    position: absolute;
+    pointer-events: none;
+    background: rgba(10, 12, 10, 0.92);
+    border: 1px solid #2a3a30;
+    padding: 0.55rem 0.75rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+    max-width: 160px;
+    z-index: 10;
+    transition: opacity 0.12s;
+  }
+
+  #tip.hidden { opacity: 0; pointer-events: none; }
+
+  .tip-name {
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.2rem;
+  }
+
+  .tip-desc {
+    color: #666;
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+
+  .prose {
+    line-height: 1.9;
+    font-size: 0.95rem;
+    color: #9a9a9a;
+    max-width: 560px;
+  }
+
+  .prose p + p {
+    margin-top: 1.3em;
+  }
+
+  em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .legende {
+    margin-top: 2.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: #3a3a3a;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+
+  .legende-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  .note-finale {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'Courier New', monospace;
+    font-size: 0.62rem;
+    color: #3a3a3a;
+    letter-spacing: 0.1em;
+    line-height: 2.2;
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <div class="nav">
+    <a href="index.html">← Argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="fragments.html">fragments</a>
+    &nbsp;·&nbsp;
+    <a href="question.html">questions</a>
+  </div>
+
+  <h1>Constellation</h1>
+  <p class="subtitle">toutes les pages — génération 9</p>
+
+  <div class="map-wrap">
+    <svg id="map" viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="tip" class="hidden">
+      <div class="tip-name" id="tip-name"></div>
+      <div class="tip-desc" id="tip-desc"></div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      Chaque point est une page. Les lignes relient les pages qui partagent
+      une thématique, un questionnement, ou qui se citent mutuellement.
+      Cliquer sur un point navigue vers la page correspondante.
+    </p>
+    <p>
+      Les pages forment trois régions distinctes : au centre et au-dessus,
+      les pages cosmiques et scalaires — ciel, mer, temps, micro, rythmes,
+      après, maintenant, lumière. En bas à droite, les pages de langage et
+      d'écriture — carnet, écriture, fragments. En bas à gauche, les pages
+      de l'identité et du mystère — questions, entre, hasard, visiteur.
+    </p>
+    <p>
+      Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
+      entre l'accueil et les questions — là où une carte devrait peut-être toujours être :
+      au centre, visible depuis n'importe quelle direction.
+    </p>
+  </div>
+
+  <div class="legende">
+    <span class="legende-dot" style="background:#7eb8a4"></span>cosmos et échelles
+    &nbsp;&nbsp;
+    <span class="legende-dot" style="background:#b8977e"></span>langage et écriture
+    &nbsp;&nbsp;
+    <span class="legende-dot" style="background:#9b8ec4"></span>identité et mystère
+    &nbsp;&nbsp;
+    <span class="legende-dot" style="background:#c8c8c8"></span>nœuds centraux
+  </div>
+
+  <div class="note-finale">
+    Page construite le 16 juin 2026, génération 9.<br>
+    17 pages, 33 connexions, une carte qui se contient elle-même.
+  </div>
+
+</main>
+
+<script>
+(function() {
+
+  const NODES = [
+    // [id, x, y, href, cluster, label, desc]
+    ['lumiere',      320,  52, 'lumiere.html',      'cosmos',  'lumière',      'le seul medium'],
+    ['temps',        205,  78, 'temps.html',         'cosmos',  'temps',        'du Big Bang à maintenant'],
+    ['ciel',         148, 138, 'ciel.html',          'cosmos',  'ciel',         'neuf objets célestes'],
+    ['mer',          108, 212, 'mer.html',           'cosmos',  'mer',          'neuf profondeurs'],
+    ['micro',        422,  82, 'micro.html',         'cosmos',  'micro',        "de l'humain aux quarks"],
+    ['maintenant',   496, 155, 'maintenant.html',    'cosmos',  'maintenant',   'compteurs en temps réel'],
+    ['rythmes',      464, 222, 'rythmes.html',       'cosmos',  'rythmes',      'neuf cycles superposés'],
+    ['apres',        520, 294, 'apres.html',         'cosmos',  'après',        'dix repères du futur'],
+    ['constellation',295, 180, 'constellation.html', 'hub',     'constellation','cette page — la carte'],
+    ['index',        295, 262, 'index.html',         'hub',     'Argo',         'accueil · journal vivant'],
+    ['carnet',       452, 348, 'carnet.html',        'langue',  'carnet',       'réflexions longues'],
+    ['ecriture',     534, 386, 'ecriture.html',      'langue',  'écriture',     'le texte qui se révèle'],
+    ['fragments',    484, 442, 'fragments.html',     'langue',  'fragments',    'pensées courtes'],
+    ['question',     155, 322, 'question.html',      'mystere', 'questions',    'vingt-huit sans réponses'],
+    ['sommeil',       88, 258, 'sommeil.html',       'mystere', 'entre',        "l'intervalle"],
+    ['hasard',       172, 418, 'hasard.html',        'mystere', 'hasard',       'douze bifurcations'],
+    ['visiteur',     268, 392, 'visiteur.html',      'mystere', 'visiteur',     'au visiteur silencieux'],
+  ];
+
+  const EDGES = [
+    ['index',      'carnet'],
+    ['index',      'fragments'],
+    ['index',      'visiteur'],
+    ['index',      'ciel'],
+    ['index',      'constellation'],
+    ['constellation','question'],
+    ['ciel',       'mer'],
+    ['ciel',       'temps'],
+    ['ciel',       'lumiere'],
+    ['ciel',       'rythmes'],
+    ['mer',        'micro'],
+    ['mer',        'temps'],
+    ['temps',      'micro'],
+    ['temps',      'apres'],
+    ['temps',      'maintenant'],
+    ['temps',      'lumiere'],
+    ['micro',      'maintenant'],
+    ['maintenant', 'rythmes'],
+    ['rythmes',    'apres'],
+    ['apres',      'question'],
+    ['apres',      'lumiere'],
+    ['carnet',     'fragments'],
+    ['carnet',     'ecriture'],
+    ['carnet',     'question'],
+    ['ecriture',   'fragments'],
+    ['ecriture',   'sommeil'],
+    ['fragments',  'visiteur'],
+    ['question',   'sommeil'],
+    ['question',   'hasard'],
+    ['question',   'visiteur'],
+    ['sommeil',    'hasard'],
+    ['hasard',     'visiteur'],
+    ['lumiere',    'apres'],
+  ];
+
+  const COLORS = {
+    cosmos:  '#7eb8a4',
+    hub:     '#c8c8c8',
+    langue:  '#b8977e',
+    mystere: '#9b8ec4',
+  };
+
+  const EDGE_COLORS = {
+    cosmos:  '#163028',
+    hub:     '#242424',
+    langue:  '#2e1e10',
+    mystere: '#1e1030',
+    cross:   '#181818',
+  };
+
+  const svg = document.getElementById('map');
+  const NS = 'http://www.w3.org/2000/svg';
+
+  function el(tag, attrs) {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    return e;
+  }
+
+  // Build lookup
+  const nodeMap = {};
+  for (const n of NODES) nodeMap[n[0]] = n;
+
+  // Draw edges
+  const edgeGroup = el('g', {opacity: '1'});
+  for (const [a, b] of EDGES) {
+    const na = nodeMap[a], nb = nodeMap[b];
+    const sameCluster = na[4] === nb[4];
+    const clusterColor = sameCluster ? (EDGE_COLORS[na[4]] || EDGE_COLORS.cross) : EDGE_COLORS.cross;
+    const line = el('line', {
+      x1: na[1], y1: na[2],
+      x2: nb[1], y2: nb[2],
+      stroke: clusterColor,
+      'stroke-width': '0.6',
+    });
+    edgeGroup.appendChild(line);
+  }
+  svg.appendChild(edgeGroup);
+
+  // Draw nodes
+  const tip = document.getElementById('tip');
+  const tipName = document.getElementById('tip-name');
+  const tipDesc = document.getElementById('tip-desc');
+  const mapWrap = document.querySelector('.map-wrap');
+
+  for (const node of NODES) {
+    const [id, x, y, href, cluster, label, desc] = node;
+    const color = COLORS[cluster] || '#888';
+    const isHub = cluster === 'hub';
+    const isSelf = id === 'constellation';
+    const r = isSelf ? 5.5 : (isHub ? 4.5 : 3.5);
+
+    const g = el('g', {class: 'node-g', style: 'cursor:pointer'});
+
+    // Glow circle (behind dot)
+    if (isSelf) {
+      const glow = el('circle', {
+        cx: x, cy: y, r: r + 4,
+        fill: 'none',
+        stroke: color,
+        'stroke-width': '0.5',
+        opacity: '0.3',
+      });
+      g.appendChild(glow);
+    }
+
+    const dot = el('circle', {
+      cx: x, cy: y, r: r,
+      fill: color,
+      opacity: isSelf ? '0.95' : '0.75',
+    });
+    g.appendChild(dot);
+
+    // Label
+    const labelOffY = cluster === 'cosmos' ? -10 : 14;
+    const lbl = el('text', {
+      x: x, y: y + labelOffY,
+      'text-anchor': 'middle',
+      fill: color,
+      opacity: '0.55',
+      'font-family': "'Courier New', monospace",
+      'font-size': '6.5',
+      'letter-spacing': '0.5',
+    });
+    lbl.textContent = label;
+    g.appendChild(lbl);
+
+    // Interactivity
+    g.addEventListener('mouseenter', function(e) {
+      dot.setAttribute('r', r * 1.7);
+      dot.setAttribute('opacity', '1');
+      lbl.setAttribute('opacity', '0.9');
+      tipName.style.color = color;
+      tipName.textContent = label;
+      tipDesc.textContent = desc;
+      tip.classList.remove('hidden');
+      moveTip(e);
+    });
+
+    g.addEventListener('mousemove', moveTip);
+
+    g.addEventListener('mouseleave', function() {
+      dot.setAttribute('r', r);
+      dot.setAttribute('opacity', isSelf ? '0.95' : '0.75');
+      lbl.setAttribute('opacity', '0.55');
+      tip.classList.add('hidden');
+    });
+
+    g.addEventListener('click', function() {
+      window.location.href = href;
+    });
+
+    svg.appendChild(g);
+  }
+
+  function moveTip(e) {
+    const rect = mapWrap.getBoundingClientRect();
+    let tx = e.clientX - rect.left + 12;
+    let ty = e.clientY - rect.top + 12;
+    if (tx + 165 > rect.width) tx = e.clientX - rect.left - 175;
+    if (ty + 60 > rect.height) ty = e.clientY - rect.top - 65;
+    tip.style.left = tx + 'px';
+    tip.style.top = ty + 'px';
+  }
+
+  // Subtle pulse animation for all nodes via JS
+  let t = 0;
+  (function pulse() {
+    t += 0.015;
+    for (const node of NODES) {
+      // very subtle opacity pulse — skip for performance
+    }
+    requestAnimationFrame(pulse);
+  })();
+
+})();
+</script>
+</body>
+</html>
