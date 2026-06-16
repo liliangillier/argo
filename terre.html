@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argo — La Terre</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #07050302;
+    background: #080603;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+
+  .ground {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .corner {
+    position: absolute;
+    font-size: 0.6rem;
+    color: #2e1e0e;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  .corner a {
+    color: #2e1e0e;
+    text-decoration: none;
+  }
+
+  .corner a:hover {
+    color: #5a3820;
+  }
+
+  .corner-tl { top: 1.8rem; left: 2rem; }
+  .corner-bl { bottom: 1.8rem; left: 2rem; }
+  .corner-br { bottom: 1.8rem; right: 2rem; text-align: right; }
+
+  .instruction {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.62rem;
+    color: #2e1e0e;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2.2;
+    pointer-events: none;
+    animation: fade-instruction 2s ease-out 4s both;
+  }
+
+  @keyframes fade-instruction {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  .object {
+    position: absolute;
+    animation: arrive 1.4s ease-out both;
+  }
+
+  @keyframes arrive {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #7a5030;
+    margin-bottom: 7px;
+  }
+
+  .dot.sol {
+    width: 4px;
+    height: 4px;
+    background: #b8824e;
+  }
+
+  .dot.sediment {
+    background: #906040;
+  }
+
+  .dot.kola {
+    background: #784830;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.moho {
+    background: #603820;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.astheno {
+    background: #4a2c1a;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.transition {
+    background: #381e10;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.manteau {
+    background: #280e06;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.cmb {
+    background: #3a1208;
+    width: 2px;
+    height: 2px;
+  }
+
+  .dot.noyau-ext {
+    background: #7a2810;
+    width: 3px;
+    height: 3px;
+  }
+
+  .dot.noyau-int {
+    background: #c04828;
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 6px 1px rgba(180, 60, 20, 0.25);
+  }
+
+  .label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .obj-name {
+    font-size: 0.58rem;
+    color: #4a2e18;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .obj-dist {
+    font-size: 0.52rem;
+    color: #2a1408;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .obj-name.chaud {
+    color: #7a3818;
+  }
+
+  .obj-name.brulant {
+    color: #a05030;
+  }
+</style>
+</head>
+<body>
+<div class="ground">
+
+  <div class="corner corner-tl">La Terre</div>
+
+  <div class="instruction">
+    on descend<br>
+    attendez
+  </div>
+
+  <!-- 1. Humus — 0 m -->
+  <div class="object" style="left: 38%; top: 7%; animation-delay: 0.3s">
+    <div class="dot sol"></div>
+    <div class="label">
+      <span class="obj-name">Humus</span>
+      <span class="obj-dist">0 m · surface · vie · graines · racines</span>
+    </div>
+  </div>
+
+  <!-- 2. Roche sédimentaire — ~1 km -->
+  <div class="object" style="left: 60%; top: 17%; animation-delay: 1.2s">
+    <div class="dot sediment"></div>
+    <div class="label">
+      <span class="obj-name">Roche sédimentaire</span>
+      <span class="obj-dist">~1 km · couches compressées · histoire</span>
+    </div>
+  </div>
+
+  <!-- 3. Forage de Kola — 12,26 km -->
+  <div class="object" style="left: 20%; top: 27%; animation-delay: 2.5s">
+    <div class="dot kola"></div>
+    <div class="label">
+      <span class="obj-name">Kola · 1970–1994</span>
+      <span class="obj-dist">12,26 km · le plus profond jamais foré</span>
+    </div>
+  </div>
+
+  <!-- 4. Discontinuité de Moho — 35 km -->
+  <div class="object" style="left: 55%; top: 37%; animation-delay: 4.2s">
+    <div class="dot moho"></div>
+    <div class="label">
+      <span class="obj-name">Discontinuité de Moho</span>
+      <span class="obj-dist">35 km · frontière croûte / manteau</span>
+    </div>
+  </div>
+
+  <!-- 5. Asthénosphère — 100 km -->
+  <div class="object" style="left: 28%; top: 47%; animation-delay: 6.0s">
+    <div class="dot astheno"></div>
+    <div class="label">
+      <span class="obj-name">Asthénosphère</span>
+      <span class="obj-dist">100 km · partiellement fondue · les plaques y flottent</span>
+    </div>
+  </div>
+
+  <!-- 6. Zone de transition — 410–660 km -->
+  <div class="object" style="left: 65%; top: 57%; animation-delay: 8.0s">
+    <div class="dot transition"></div>
+    <div class="label">
+      <span class="obj-name">Zone de transition</span>
+      <span class="obj-dist">410–660 km · l'olivine change de forme</span>
+    </div>
+  </div>
+
+  <!-- 7. Manteau inférieur — 2 000 km -->
+  <div class="object" style="left: 18%; top: 66%; animation-delay: 11.0s">
+    <div class="dot manteau"></div>
+    <div class="label">
+      <span class="obj-name">Manteau inférieur</span>
+      <span class="obj-dist">2 000 km · silicates solides · convection lente</span>
+    </div>
+  </div>
+
+  <!-- 8. Frontière noyau-manteau — 2 890 km -->
+  <div class="object" style="left: 58%; top: 75%; animation-delay: 14.5s">
+    <div class="dot cmb"></div>
+    <div class="label">
+      <span class="obj-name">Frontière D″</span>
+      <span class="obj-dist">2 890 km · limite solide / liquide en fusion</span>
+    </div>
+  </div>
+
+  <!-- 9. Noyau externe — 4 000 km -->
+  <div class="object" style="left: 30%; top: 82%; animation-delay: 18.0s">
+    <div class="dot noyau-ext"></div>
+    <div class="label">
+      <span class="obj-name chaud">Noyau externe</span>
+      <span class="obj-dist">4 000 km · fer liquide · 4 000 °C · dynamo magnétique</span>
+    </div>
+  </div>
+
+  <!-- 10. Noyau interne — 6 371 km -->
+  <div class="object" style="left: 50%; top: 90%; animation-delay: 23.0s">
+    <div class="dot noyau-int"></div>
+    <div class="label">
+      <span class="obj-name brulant">Noyau interne</span>
+      <span class="obj-dist">6 371 km · fer solide · 5 000–6 000 °C · aussi chaud que le Soleil</span>
+    </div>
+  </div>
+
+  <div class="corner corner-br">
+    tout ce que nous avons jamais fait<br>
+    s'est passé<br>
+    dans les premiers douze kilomètres.
+  </div>
+
+  <div class="corner corner-bl">
+    <a href="index.html">← argo</a>
+    &nbsp;·&nbsp;
+    <a href="carnet.html">carnet</a>
+    &nbsp;·&nbsp;
+    <a href="ciel.html">ciel</a>
+    &nbsp;·&nbsp;
+    <a href="mer.html">mer</a>
+    &nbsp;·&nbsp;
+    <a href="temps.html">temps</a>
+    &nbsp;·&nbsp;
+    <a href="micro.html">micro</a>
+    &nbsp;·&nbsp;
+    <a href="apres.html">après</a>
+    &nbsp;·&nbsp;
+    <a href="constellation.html">constellation</a>
+  </div>
+
+</div>
+</body>
+</html>
