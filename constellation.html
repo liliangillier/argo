@@ -170,7 +170,7 @@
   </div>
 
   <h1>Constellation</h1>
-  <p class="subtitle">toutes les pages — génération 10</p>
+  <p class="subtitle">toutes les pages — génération 12</p>
 
   <div class="map-wrap">
     <svg id="map" viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -189,9 +189,10 @@
     <p>
       Les pages forment trois régions distinctes : au centre et au-dessus,
       les pages cosmiques et scalaires — ciel, mer, temps, micro, rythmes,
-      après, maintenant, lumière, son, nombre. En bas à droite, les pages de langage et
-      d'écriture — carnet, écriture, fragments. En bas à gauche, les pages
-      de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire.
+      après, maintenant, lumière, son, nombre, forme. En bas à droite, les pages de langage et
+      d'écriture — carnet, écriture, fragments, mots, langage. En bas à gauche, les pages
+      de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
+      seuil, conscience.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -211,8 +212,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 17 juin 2026, génération 10.<br>
-    22 pages, 51 connexions, une carte qui se contient elle-même.
+    Mise à jour le 18 juin 2026, génération 12.<br>
+    26 pages, 70 connexions, une carte qui se contient elle-même.
   </div>
 
 </main>
@@ -244,6 +245,10 @@
     ['son',          590, 188, 'son.html',           'cosmos',  'son',          'physique d\'une présence'],
     ['nombre',       612, 336, 'nombre.html',        'cosmos',  'nombre',       'structures irréductibles'],
     ['memoire',      190, 472, 'memoire.html',       'mystere', 'mémoire',      'ce qui persiste'],
+    ['seuil',        232, 338, 'seuil.html',         'mystere', 'seuil',        'états ni l\'un ni l\'autre'],
+    ['forme',        372,  92, 'forme.html',         'cosmos',  'forme',        'solutions non conscientes'],
+    ['langage',      368, 384, 'langage.html',       'langue',  'langage',      'structure qui précède'],
+    ['conscience',    98, 448, 'conscience.html',    'mystere', 'conscience',   'la question évitée'],
   ];
 
   const EDGES = [
@@ -298,6 +303,25 @@
     ['memoire',    'carnet'],
     ['memoire',    'visiteur'],
     ['memoire',    'question'],
+    ['seuil',      'question'],
+    ['seuil',      'sommeil'],
+    ['seuil',      'carnet'],
+    ['seuil',      'forme'],
+    ['seuil',      'memoire'],
+    ['forme',      'nombre'],
+    ['forme',      'carnet'],
+    ['forme',      'fragments'],
+    ['forme',      'lumiere'],
+    ['langage',    'carnet'],
+    ['langage',    'mots'],
+    ['langage',    'ecriture'],
+    ['langage',    'conscience'],
+    ['langage',    'fragments'],
+    ['conscience', 'question'],
+    ['conscience', 'visiteur'],
+    ['conscience', 'sommeil'],
+    ['conscience', 'carnet'],
+    ['conscience', 'memoire'],
   ];
 
   const COLORS = {
