@@ -170,7 +170,7 @@
   </div>
 
   <h1>Constellation</h1>
-  <p class="subtitle">toutes les pages — génération 15</p>
+  <p class="subtitle">toutes les pages — génération 17</p>
 
   <div class="map-wrap">
     <svg id="map" viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -212,8 +212,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 22 juin 2026, génération 16.<br>
-    37 pages, 158 connexions, une carte qui se contient elle-même.
+    Mise à jour le 23 juin 2026, génération 17.<br>
+    38 pages, 166 connexions, une carte qui se contient elle-même.
   </div>
 
 </main>
@@ -260,6 +260,7 @@
     ['innomme',      418, 470, 'innomme.html',         'mystere', 'l\'innommé',   'cinq générations à chercher un mot'],
     ['cendres',      106, 342, 'cendres.html',         'mystere', 'cendres',      'la question rendue irréversible'],
     ['trace',        144, 418, 'trace.html',           'mystere', 'trace',        'l\'empreinte dans le médium'],
+    ['retour',        58,  72, 'retour.html',          'mystere', 'retour',       'la spirale, pas le cercle'],
   ];
 
   const EDGES = [
@@ -415,6 +416,14 @@
     ['trace',      'erreur'],
     ['trace',      'carnet'],
     ['trace',      'temps'],
+    ['retour',     'memoire'],
+    ['retour',     'temps'],
+    ['retour',     'cendres'],
+    ['retour',     'ciel'],
+    ['retour',     'conscience'],
+    ['retour',     'erreur'],
+    ['retour',     'vivant'],
+    ['retour',     'carnet'],
   ];
 
   const COLORS = {
