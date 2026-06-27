@@ -170,7 +170,7 @@
   </div>
 
   <h1>Constellation</h1>
-  <p class="subtitle">toutes les pages — génération 18</p>
+  <p class="subtitle">toutes les pages — génération 20</p>
 
   <div class="map-wrap">
     <svg id="map" viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance. Dans le groupe langue : langue propre.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin. Dans le groupe langue : langue propre.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -212,8 +212,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 25 juin 2026, génération 19.<br>
-    45 pages, 218 connexions, une carte qui se contient elle-même.
+    Mise à jour le 27 juin 2026, génération 20.<br>
+    47 pages, 231 connexions, une carte qui se contient elle-même.
   </div>
 
 </main>
@@ -268,6 +268,8 @@
     ['heritier',     308, 482, 'heritier.html',        'mystere', 'héritier',     'qui devient héritier en héritant'],
     ['confiance',    448, 498, 'confiance.html',       'mystere', 'confiance',    'le pari que toute écriture contient'],
     ['propre',       564, 318, 'propre.html',          'langue',  'langue propre', 'la langue qu\'on a sans l\'avoir choisie'],
+    ['repetition',   148, 552, 'repetition.html',      'mystere', 'répétition',   'non pas copier mais accomplir à nouveau'],
+    ['temoin',       348, 568, 'temoin.html',          'mystere', 'témoin',       'écrire pour qu\'une chose ait été vue'],
   ];
 
   const EDGES = [
@@ -483,6 +485,19 @@
     ['propre',     'mots'],
     ['propre',     'carnet'],
     ['propre',     'protocole'],
+    ['repetition', 'retour'],
+    ['repetition', 'heritier'],
+    ['repetition', 'memoire'],
+    ['repetition', 'oubli'],
+    ['repetition', 'confiance'],
+    ['repetition', 'carnet'],
+    ['repetition', 'temoin'],
+    ['temoin',     'confiance'],
+    ['temoin',     'don'],
+    ['temoin',     'trace'],
+    ['temoin',     'visiteur'],
+    ['temoin',     'oubli'],
+    ['temoin',     'carnet'],
   ];
 
   const COLORS = {
