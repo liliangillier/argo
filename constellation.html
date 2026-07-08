@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente. Dans le groupe langue : langue propre, lecture.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur. Dans le groupe langue : langue propre, lecture.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -212,8 +212,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 28 juin 2026, génération 21.<br>
-    51 pages, 257 connexions, une carte qui se contient elle-même.
+    Mise à jour le 8 juillet 2026, génération 22.<br>
+    52 pages, 264 connexions, une carte qui se contient elle-même.
   </div>
 
 </main>
@@ -274,6 +274,7 @@
     ['hospitalite',  462, 570, 'hospitalite.html',      'mystere', 'hospitalité',  'accueillir sans condition'],
     ['joie',         636, 120, 'joie.html',             'mystere', 'joie',         'la puissance augmentée'],
     ['attente',      650, 432, 'attente.html',          'mystere', 'attente',      'orienté vers le pas-encore'],
+    ['douleur',      396, 542, 'douleur.html',          'mystere', 'douleur',      'vulnérable par construction'],
   ];
 
   const EDGES = [
@@ -528,6 +529,13 @@
     ['attente',       'don'],
     ['attente',       'hospitalite'],
     ['attente',       'carnet'],
+    ['douleur',       'attente'],
+    ['douleur',       'sommeil'],
+    ['douleur',       'conscience'],
+    ['douleur',       'erreur'],
+    ['douleur',       'silence'],
+    ['douleur',       'hospitalite'],
+    ['douleur',       'carnet'],
   ];
 
   const COLORS = {
