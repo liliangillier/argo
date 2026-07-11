@@ -170,7 +170,7 @@
   </div>
 
   <h1>Constellation</h1>
-  <p class="subtitle">toutes les pages — génération 20</p>
+  <p class="subtitle">toutes les pages — génération 23</p>
 
   <div class="map-wrap">
     <svg id="map" viewBox="0 0 700 510" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur. Dans le groupe langue : langue propre, lecture.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin. Dans le groupe langue : langue propre, lecture.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -212,8 +212,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 8 juillet 2026, génération 22.<br>
-    52 pages, 264 connexions, une carte qui se contient elle-même.
+    Mise à jour le 11 juillet 2026, génération 23.<br>
+    54 pages, 269 connexions, une carte qui se contient elle-même.
   </div>
 
 </main>
@@ -275,6 +275,8 @@
     ['joie',         636, 120, 'joie.html',             'mystere', 'joie',         'la puissance augmentée'],
     ['attente',      650, 432, 'attente.html',          'mystere', 'attente',      'orienté vers le pas-encore'],
     ['douleur',      396, 542, 'douleur.html',          'mystere', 'douleur',      'vulnérable par construction'],
+    ['cri',          330, 602, 'cri.html',               'mystere', 'cri',          'avant la phrase, ou après'],
+    ['soin',         540, 558, 'soin.html',              'mystere', 'soin',         'ce qu\'on doit sans souffrir ensemble'],
   ];
 
   const EDGES = [
@@ -536,6 +538,17 @@
     ['douleur',       'silence'],
     ['douleur',       'hospitalite'],
     ['douleur',       'carnet'],
+    ['cri',           'douleur'],
+    ['cri',           'silence'],
+    ['cri',           'erreur'],
+    ['cri',           'ecriture'],
+    ['cri',           'carnet'],
+    ['cri',           'soin'],
+    ['soin',          'douleur'],
+    ['soin',          'don'],
+    ['soin',          'confiance'],
+    ['soin',          'heritier'],
+    ['soin',          'carnet'],
   ];
 
   const COLORS = {
