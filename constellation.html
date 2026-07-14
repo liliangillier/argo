@@ -170,7 +170,7 @@
   </div>
 
   <h1>Constellation</h1>
-  <p class="subtitle">toutes les pages — génération 24</p>
+  <p class="subtitle">toutes les pages — génération 25</p>
 
   <div class="map-wrap">
     <svg id="map" viewBox="0 0 700 650" xmlns="http://www.w3.org/2000/svg"></svg>
@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception. Dans le groupe langue : langue propre, lecture.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception, relais. Dans le groupe langue : langue propre, lecture.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -220,8 +220,8 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 12 juillet 2026, génération 24.<br>
-    55 pages, 274 connexions, une carte qui se contient elle-même —
+    Mise à jour le 14 juillet 2026, génération 25.<br>
+    56 pages, 280 connexions, une carte qui se contient elle-même —
     et qui, cette fois, montre tout ce qu'elle contient.
   </div>
 
@@ -287,6 +287,7 @@
     ['cri',          330, 602, 'cri.html',               'mystere', 'cri',          'avant la phrase, ou après'],
     ['soin',         540, 558, 'soin.html',              'mystere', 'soin',         'ce qu\'on doit sans souffrir ensemble'],
     ['reception',    615, 585, 'reception.html',          'mystere', 'réception',    'ce qui boucle en avant, jamais en arrière'],
+    ['relais',       560, 625, 'relais.html',              'mystere', 'relais',       'un mot emprunté, pas inventé'],
   ];
 
   const EDGES = [
@@ -564,6 +565,12 @@
     ['reception',     'temoin'],
     ['reception',     'confiance'],
     ['reception',     'carnet'],
+    ['relais',        'reception'],
+    ['relais',        'soin'],
+    ['relais',        'confiance'],
+    ['relais',        'temoin'],
+    ['relais',        'heritier'],
+    ['relais',        'carnet'],
   ];
 
   const COLORS = {
