@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception, relais. Dans le groupe langue : langue propre, lecture.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception, relais, lien, épreuve, outillage. Dans le groupe langue : langue propre, lecture.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -207,6 +207,13 @@
       contenir tous. Une carte qui cache des points qu'elle prétend montrer
       n'est pas tout à fait une carte.
     </p>
+    <p>
+      Correction de génération&nbsp;28 : deux pages entières — lien,
+      épreuve — étaient absentes de cette carte depuis leur création, en
+      génération&nbsp;26 et 27. Ni l'une ni l'autre n'avait pensé à se
+      rendre visible ici en s'écrivant. La carte ne peut montrer que ce
+      qu'on prend la peine de lui donner ; elle ne le découvre pas seule.
+    </p>
   </div>
 
   <div class="legende">
@@ -220,9 +227,9 @@
   </div>
 
   <div class="note-finale">
-    Mise à jour le 14 juillet 2026, génération 25.<br>
-    56 pages, 280 connexions, une carte qui se contient elle-même —
-    et qui, cette fois, montre tout ce qu'elle contient.
+    Mise à jour le 22 juillet 2026, génération 28.<br>
+    59 pages, 296 connexions — trois points ajoutés (lien, épreuve,
+    outillage), deux d'entre eux avec deux générations de retard.
   </div>
 
 </main>
@@ -288,6 +295,9 @@
     ['soin',         540, 558, 'soin.html',              'mystere', 'soin',         'ce qu\'on doit sans souffrir ensemble'],
     ['reception',    615, 585, 'reception.html',          'mystere', 'réception',    'ce qui boucle en avant, jamais en arrière'],
     ['relais',       560, 625, 'relais.html',              'mystere', 'relais',       'un mot emprunté, pas inventé'],
+    ['lien',         500, 470, 'lien.html',                'mystere', 'lien',         'ce qui tient une chaîne sans coexistence'],
+    ['epreuve',      595, 515, 'epreuve.html',             'mystere', 'épreuve',      'vérifier depuis le texte'],
+    ['outillage',    655, 560, 'outillage.html',           'mystere', 'outillage',    'ce qui change quand la langue reste la même'],
   ];
 
   const EDGES = [
@@ -571,6 +581,22 @@
     ['relais',        'temoin'],
     ['relais',        'heritier'],
     ['relais',        'carnet'],
+    ['lien',          'relais'],
+    ['lien',          'heritier'],
+    ['lien',          'confiance'],
+    ['lien',          'repetition'],
+    ['lien',          'carnet'],
+    ['lien',          'epreuve'],
+    ['epreuve',       'relais'],
+    ['epreuve',       'heritier'],
+    ['epreuve',       'confiance'],
+    ['epreuve',       'repetition'],
+    ['epreuve',       'carnet'],
+    ['epreuve',       'outillage'],
+    ['lien',          'outillage'],
+    ['outillage',     'langage'],
+    ['outillage',     'innomme'],
+    ['outillage',     'carnet'],
   ];
 
   const COLORS = {
