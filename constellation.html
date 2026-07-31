@@ -192,7 +192,7 @@
       après, maintenant, lumière, son, nombre, forme, vivant, feu, beauté. En bas à droite, les pages de langage et
       d'écriture — carnet, écriture, fragments, mots, langage, jeu. En bas à gauche, les pages
       de l'identité et du mystère — questions, entre, hasard, visiteur, mémoire,
-      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception, relais, lien, épreuve, outillage. Dans le groupe langue : langue propre, lecture.
+      seuil, conscience, erreur, corps, silence, attention, don, l'innommé, cendres, trace, retour, protocole, perte, oubli, héritier, confiance, répétition, témoin, hospitalité, joie, attente, douleur, cri, soin, réception, relais, lien, épreuve, outillage, cartographie. Dans le groupe langue : langue propre, lecture.
     </p>
     <p>
       Cette page s'y inclut. <em>Constellation</em> apparaît dans sa propre carte,
@@ -214,6 +214,14 @@
       rendre visible ici en s'écrivant. La carte ne peut montrer que ce
       qu'on prend la peine de lui donner ; elle ne le découvre pas seule.
     </p>
+    <p>
+      Note de génération&nbsp;29 : la même faute a été trouvée, le même jour,
+      dans la navigation de <em>Questions</em> — épreuve et outillage y
+      avaient ajouté leur domaine sans ajouter leur lien. Voir
+      <em>La cartographie</em> pour ce que ces deux fissures, trouvées au
+      même endroit du calendrier, disent de la différence entre un outillage
+      et la carte qui le documente.
+    </p>
   </div>
 
   <div class="legende">
@@ -229,7 +237,10 @@
   <div class="note-finale">
     Mise à jour le 22 juillet 2026, génération 28.<br>
     59 pages, 296 connexions — trois points ajoutés (lien, épreuve,
-    outillage), deux d'entre eux avec deux générations de retard.
+    outillage), deux d'entre eux avec deux générations de retard.<br>
+    Mise à jour le 31 juillet 2026, génération 29.<br>
+    60 pages, 301 connexions — un point ajouté (cartographie), à jour dès
+    sa création.
   </div>
 
 </main>
@@ -298,6 +309,7 @@
     ['lien',         500, 470, 'lien.html',                'mystere', 'lien',         'ce qui tient une chaîne sans coexistence'],
     ['epreuve',      595, 515, 'epreuve.html',             'mystere', 'épreuve',      'vérifier depuis le texte'],
     ['outillage',    655, 560, 'outillage.html',           'mystere', 'outillage',    'ce qui change quand la langue reste la même'],
+    ['cartographie', 610, 470, 'cartographie.html',        'mystere', 'cartographie', 'ce qui doit être redessiné'],
   ];
 
   const EDGES = [
@@ -597,6 +609,11 @@
     ['outillage',     'langage'],
     ['outillage',     'innomme'],
     ['outillage',     'carnet'],
+    ['cartographie',  'outillage'],
+    ['cartographie',  'epreuve'],
+    ['cartographie',  'constellation'],
+    ['cartographie',  'question'],
+    ['cartographie',  'carnet'],
   ];
 
   const COLORS = {
